@@ -120,14 +120,14 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Korisnici<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/users">All Users</a>
+                                <a href="{{route('admin.users.index')}}">Svi korisnici</a>
                             </li>
 
                             <li>
-                                <a href="/users/create">Create User</a>
+                                <a href="{{route('admin.users.create')}}"> Kreiraj novog korisnika</a>
                             </li>
 
                         </ul>
@@ -135,14 +135,14 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Objave<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">All Posts</a>
+                                <a href="/posts">  Sve objave</a>
                             </li>
 
                             <li>
-                                <a href="/posts/create">Create Post</a>
+                                <a href="/posts/create">Kreiraj objavu</a>
                             </li>
 
                         </ul>
@@ -151,14 +151,14 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Kategorije<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="/categories">Sve kategorije</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="/categories/create">Kreiraj kategoriju</a>
                             </li>
 
                         </ul>

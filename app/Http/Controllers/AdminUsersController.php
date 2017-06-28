@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsersRequest;
+use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,54 +44,70 @@ class AdminUsersController extends Controller
     public function store(UsersRequest $request)
     {
 
-         User::create($request->all());
-        return redirect('/admin/users');
-      // return $request->all();
+
+        $input = $request->all();
+        if ($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+            $photo = Photo::create(['file' => $name]);
+           $input['photo_id'] = $photo->id;
+    # return $photo->id;
+        }
+        $input['password'] = bcrypt($request->getPassword()); #bigcrypt
+
+        User::create($input);
+
+        //return redirect('/admin/users');
+        // return $request->all();
         //return view('admin.users.store');
     }
+        /**
+         * Display the specified resource.
+         *
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public
+        function show($id)
+        {
+            return view('admin.users.show');
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return view('admin.users.show');
-    }
+        /**
+         * Show the form for editing the specified resource.
+         *
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public
+        function edit($id)
+        {
+            return view('admin.users.edit');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return view('admin.users.edit');
-    }
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  \Illuminate\Http\Request $request
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public
+        function update(Request $request, $id)
+        {
+            return view('admin.users.update');
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        return view('admin.users.update');
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int $id
+         * @return \Illuminate\Http\Response
+         */
+        public
+        function destroy($id)
+        {
+            return view('admin.users.destroy');
+        }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return view('admin.users.destroy');
-    }
-}
