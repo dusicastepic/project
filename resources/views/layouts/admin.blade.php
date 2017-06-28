@@ -12,8 +12,7 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    //looks for public folder css that was compilewd with gulp app.css, libs.css
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
