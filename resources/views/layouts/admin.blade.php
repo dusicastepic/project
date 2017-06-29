@@ -145,11 +145,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Objave<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">  Sve objave</a>
+                                <a href="{{route('admin.posts.index')}}">  Sve objave</a>
                             </li>
 
                             <li>
-                                <a href="/posts/create">Kreiraj objavu</a>
+                                <a href="{{route('admin.posts.create')}}">Kreiraj objavu</a>
                             </li>
 
                         </ul>
