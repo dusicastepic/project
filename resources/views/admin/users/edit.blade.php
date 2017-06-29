@@ -53,9 +53,18 @@
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Izmeni korisnika',['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Izmeni korisnika',['class'=>'btn btn-primary col-sm-2']) !!}
     </div>
     {!! Form::close() !!}
+
+        {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id],'class'=>'pull-right ']) !!}
+
+        <div class="form-group">
+            {!! Form::submit('Obrisi korisnika',['class'=>'btn btn-danger']) !!}
+        </div>
+        {!! Form::close() !!}
+
+
 
     </div>
 

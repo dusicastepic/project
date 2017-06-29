@@ -2,6 +2,11 @@
 
 @section('content')
 
+
+    @if(Session::has('deleted_user'))
+
+    <p class="bg-red">{{session('deleted_user')}}</p>
+        @endif
     <h1>Korisnici</h1>
 
  <table class="table table-striped">
