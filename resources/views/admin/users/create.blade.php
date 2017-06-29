@@ -7,7 +7,7 @@
 <h1>Dodaj korisnika</h1>
 
 
-    {!! Form::open(['method'=>'post','action'=>'AdminUsersController@store','files'=>'true']) !!}
+    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>'true']) !!}
         <div class="form-group">
         {!! Form::label('name','Ime') !!}
         {!! Form::text('name',null, ['class'=>'form-control']) !!}
